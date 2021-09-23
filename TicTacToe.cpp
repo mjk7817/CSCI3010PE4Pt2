@@ -1,13 +1,20 @@
 #include <iostream> 
 #include <vector>
 
-void CreateBoard()
+int** CreateBoard(int width, int height)
 {
-    int matrix [3][3] = {0};
-    std::cout<< matrix<<std::endl;
+    int** arr = new int*[height];
+    
+    for(int i = 0; i < height; i++)
+        arr[i] = new int[width];
+    
+    for(int i = 0; i < height; i++)
+        for(int j = 0; j < width; j++)
+            arr[i][j] = j;
+    return arr;
 }
 
-void DisplayBoard(int arr[][3])
+void DisplayBoard(int* *arr)
 {
     for(int i = 0; i < 3; i++)
     {
@@ -21,7 +28,8 @@ void DisplayBoard(int arr[][3])
 
 int main()
 {
-    CreateBoard();
-    int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+    int* *arr = CreateBoard(3,3);
     DisplayBoard(arr);
+
+    delete[] arr;
 }
