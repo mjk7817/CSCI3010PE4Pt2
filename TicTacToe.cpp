@@ -23,6 +23,14 @@ void DisplayBoard()
     std::cout<<" "<<matrix[7]<<" "<<matrix[8]<<" "<<matrix[9]<<std::endl;
 
 }
+std::string GetPlayerChoice()
+{
+    std::cout<<std::endl;
+    std::cout<<"Please enter location choice: ";
+    std::string choice;
+    return choice;
+    // which should prompt the user for a location to play, then return that choice, 
+}
 
 int main()
 {
