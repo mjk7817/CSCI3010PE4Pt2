@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <vector>
 
+
 char** CreateBoard(int width, int height)
 {
     char** arr = new char*[height];
@@ -26,6 +27,7 @@ void DisplayBoard(char** arr)
     }
 }
 
+
 void PlaceMarker(char** &arr,int x, int y, char marker)
 {
     if(x >= 3 || y>=3)
@@ -34,6 +36,15 @@ void PlaceMarker(char** &arr,int x, int y, char marker)
         exit(1);
     }
     arr[y][x] = marker;
+}
+
+std::string GetPlayerChoice()
+{
+    std::cout<<std::endl;
+    std::cout<<"Please enter location choice: ";
+    std::string choice;
+    return choice;
+    // which should prompt the user for a location to play, then return that choice, 
 }
 
 int main()
