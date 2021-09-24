@@ -1,35 +1,48 @@
 #include <iostream> 
 #include <vector>
 
-int** CreateBoard(int width, int height)
+char** CreateBoard(int width, int height)
 {
-    int** arr = new int*[height];
+    char** arr = new char*[height];
     
     for(int i = 0; i < height; i++)
-        arr[i] = new int[width];
+        arr[i] = new char[width];
     
     for(int i = 0; i < height; i++)
         for(int j = 0; j < width; j++)
-            arr[i][j] = j;
+            arr[i][j] = 'x';
     return arr;
 }
 
-void DisplayBoard(int* *arr)
+void DisplayBoard(char** arr)
 {
     for(int i = 0; i < 3; i++)
     {
-        for(int j = 0; j < 3; j++)
+        for(int j = 0; j < 2; j++)
         {
-            std::cout << arr[i][j] << " ";
+            std::cout << arr[i][j] << "|";
         }
-        std::cout << "\n";
+        std::cout << arr[i][2] << "\n";
     }
+}
+
+void PlaceMarker(char** &arr,int x, int y, char marker)
+{
+    if(x >= 3 || y>=3)
+    {
+        std::cout << "\nPlaceMarker out of bounds, exiting";
+        exit(1);
+    }
+    arr[y][x] = marker;
 }
 
 int main()
 {
-    int* *arr = CreateBoard(3,3);
+    char* *arr = CreateBoard(3,3);
     DisplayBoard(arr);
+
+    for(int i = 0; i < 3; i++)
+        delete arr[i];
 
     delete[] arr;
 }
