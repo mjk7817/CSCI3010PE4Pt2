@@ -2,53 +2,40 @@
 #include <vector>
 
 
-int** CreateBoard(int width, int height)
+char** CreateBoard(int width, int height)
 {
-    int** arr = new int*[height];
+    char** arr = new char*[height];
     
     for(int i = 0; i < height; i++)
-        arr[i] = new int[width];
+        arr[i] = new char[width];
     
     for(int i = 0; i < height; i++)
         for(int j = 0; j < width; j++)
-            arr[i][j] = j;
+            arr[i][j] = 'x';
     return arr;
 }
 
-void DisplayBoard(int* *arr)
+void DisplayBoard(char** arr)
 {
     for(int i = 0; i < 3; i++)
     {
-        for(int j = 0; j < 3; j++)
+        for(int j = 0; j < 2; j++)
         {
-            std::cout << arr[i][j] << " ";
+            std::cout << arr[i][j] << "|";
         }
-        std::cout << "\n";
+        std::cout << arr[i][2] << "\n";
     }
 }
 
 
-int CreateBoard()
+void PlaceMarker(char** &arr,int x, int y, char marker)
 {
-    int matrix [3][3] = {0};
-    return matrix;
-}
-
-void DisplayBoard()
-{
-    system("cls");
-    std::cout<<"\n\n\t Tic Tac Toe\n\n";
-
-    std::cout<<"Player1 (X)- Player2 (Y)"<<std::endl;
-    std::cout<<std::endl;
-
-    std::cout<< "|    |   "<<std::endl;
-    std::cout<<" "<<matrix[1]<<" "<<matrix[2]<<" "<<matrix[3]<<std::endl;
-    std::cout<< "|    |   "<<std::endl;
-    std::cout<<" "<<matrix[4]<<" "<<matrix[5]<<" "<<matrix[6]<<std::endl;
-    std::cout<< "|    |   "<<std::endl;
-    std::cout<<" "<<matrix[7]<<" "<<matrix[8]<<" "<<matrix[9]<<std::endl;
-
+    if(x >= 3 || y>=3)
+    {
+        std::cout << "\nPlaceMarker out of bounds, exiting";
+        exit(1);
+    }
+    arr[y][x] = marker;
 }
 
 std::string GetPlayerChoice()
@@ -62,8 +49,11 @@ std::string GetPlayerChoice()
 
 int main()
 {
-    int* *arr = CreateBoard(3,3);
+    char* *arr = CreateBoard(3,3);
     DisplayBoard(arr);
+
+    for(int i = 0; i < 3; i++)
+        delete arr[i];
 
     delete[] arr;
 }
