@@ -26,6 +26,15 @@ void DisplayBoard(int* *arr)
     }
 }
 
+std::string GetPlayerChoice()
+{
+    std::cout<<std::endl;
+    std::cout<<"Please enter location choice: ";
+    std::string choice;
+    return choice;
+    // which should prompt the user for a location to play, then return that choice, 
+}
+
 int main()
 {
     int* *arr = CreateBoard(3,3);
