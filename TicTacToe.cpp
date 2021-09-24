@@ -1,7 +1,10 @@
 #include <iostream> 
 #include <vector>
 
-
+/* Function that initializes the Board 
+@param int width, int height 
+@return array of character arrays 
+*/
 char** CreateBoard(int width, int height)
 {
     char** arr = new char*[height];
@@ -15,6 +18,10 @@ char** CreateBoard(int width, int height)
     return arr;
 }
 
+/* Function that displays the board 
+@param pointer to an array of charecter arrays 
+@returns nothing 
+*/
 void DisplayBoard(char** arr)
 {
     for(int i = 0; i < 3; i++)
@@ -27,7 +34,10 @@ void DisplayBoard(char** arr)
     }
 }
 
-
+/* Function that marks the place where the user is 
+@param reference to arr, int x, int y, and char marker
+@return nothing, exits on out of bounds input 
+*/
 void PlaceMarker(char** &arr,int x, int y, char marker)
 {
     if(x >= 3 || y>=3)
@@ -37,6 +47,12 @@ void PlaceMarker(char** &arr,int x, int y, char marker)
     }
     arr[y][x] = marker;
 }
+/*
+Function prompts the user to enter a string of values 1-9 for location 
+Converts this to an int 
+@param none
+@returns integer of user choice 
+*/
 
 int GetPlayerChoice()
 {
@@ -47,7 +63,10 @@ int GetPlayerChoice()
     return stoi(choice);
     // which should prompt the user for a location to play, then return that choice, 
 }
-
+/* Main handles running the full game loop 
+Contains checks setting up x's and o's
+Uses switch to determine correct placemarker on the board 
+*/
 int main()
 {
     char* *arr = CreateBoard(3,3);
