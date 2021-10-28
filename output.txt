@@ -1,0 +1,50 @@
+brno4758@LAPTOP-5V6QKKMT:/mnt/c/Users/noble/Documents/CSCI3010/week5/PE4/CSCI3010PE4Pt2$ ./tictactoe
+ | |
+ | |
+ | |
+
+Please enter location choice: 1
+x| | 
+ | | 
+ | | 
+
+Please enter location choice:
+9
+x| | 
+ | |
+ | |o
+
+Please enter location choice: 2
+x| | 
+x| |
+ | |o
+
+Please enter location choice: 3
+x| | 
+x| |
+o| |o
+
+Please enter location choice: 6
+x| | 
+x| |
+o|x|o
+
+Please enter location choice: 8
+x| | 
+x| |o
+o|x|o
+
+Please enter location choice: 4
+x|x| 
+x| |o
+o|x|o
+
+Please enter location choice: 5
+x|x| 
+x|o|o
+o|x|o
+
+Please enter location choice: 7
+x|x|x
+x|o|o
+o|x|o
